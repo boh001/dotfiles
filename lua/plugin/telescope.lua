@@ -48,7 +48,7 @@ return {
 
     telescope.load_extension("workspaces")
     telescope.load_extension("fzf")
-    --telescope.load_extension("yank_history")
+    telescope.load_extension("yank_history")
 
     local builtin = require("telescope.builtin")
 
