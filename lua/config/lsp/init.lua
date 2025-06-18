@@ -1,17 +1,39 @@
--- lua
-vim.lsp.config["lua_ls"] = {
-  cmd = { "lua-language-server" },
+-- *
+vim.lsp.config("*", {
   root_markers = { ".git" },
-  settings = {
-    Lua = {
-      runtime = {
-        version = "LuaJIT",
-      },
-    },
-  },
-}
+})
 
+-- lua
+local lua_ls = require("config.lsp.lua_ls")
+
+vim.lsp.config.lua_ls = lua_ls
 vim.lsp.enable("lua_ls")
+
+-- typescript
+local ts_ls = require("config.lsp.ts_ls")
+
+vim.lsp.config.ts_ls = ts_ls
+vim.lsp.enable("ts_ls")
+
+-- eslint
+local eslint = require("config.lsp.eslint")
+vim.lsp.config.eslint = eslint
+vim.lsp.enable("eslint")
+
+-- html
+local html = require("config.lsp.html")
+vim.lsp.config.html = html
+vim.lsp.enable("html")
+
+-- css
+local cssls = require("config.lsp.cssls")
+vim.lsp.config.cssls = cssls
+vim.lsp.enable("cssls")
+
+-- tailwindcss
+local tailwindcss = require("config.lsp.tailwindcss")
+vim.lsp.config.tailwindcss = tailwindcss
+vim.lsp.enable("tailwindcss")
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
