@@ -7,6 +7,12 @@ return {
       preset = "minimal",
       transparent_bg = true,
       transparent_cursorline = true,
+      options = {
+        show_source = {
+          enabled = true,
+          if_many = false,
+        },
+      },
     })
   end,
 }
