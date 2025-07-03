@@ -10,7 +10,10 @@ return {
         "html",
         "css",
         "tsx",
+        "markdown",
+        "markdown_inline",
       },
+      ignore_install = {},
       sync_install = false,
       auto_install = true,
       highlight = {

@@ -4,7 +4,15 @@ return {
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls", "ts_ls", "html", "cssls", "tailwindcss", "eslint" },
+      ensure_installed = {
+        "lua_ls",
+        "ts_ls",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "eslint",
+        "mdx_analyzer",
+      },
       automatic_installation = true,
     })
     require("mason-tool-installer").setup({

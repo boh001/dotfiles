@@ -35,6 +35,11 @@ local tailwindcss = require("config.lsp.tailwindcss")
 vim.lsp.config.tailwindcss = tailwindcss
 vim.lsp.enable("tailwindcss")
 
+-- mdx
+local mdx_analyzer = require("config.lsp.mdx_analyzer")
+vim.lsp.config.mdx_analyzer = mdx_analyzer
+vim.lsp.enable("mdx_analyzer")
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
