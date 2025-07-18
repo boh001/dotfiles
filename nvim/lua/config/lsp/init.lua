@@ -40,6 +40,11 @@ local mdx_analyzer = require("config.lsp.mdx_analyzer")
 vim.lsp.config.mdx_analyzer = mdx_analyzer
 vim.lsp.enable("mdx_analyzer")
 
+-- astro
+local astro = require("config.lsp.astro")
+vim.lsp.config.astro = astro
+vim.lsp.enable("astro")
+
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(ev)
@@ -56,7 +61,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
     vim.keymap.set("n", "<leader>x", open_diagnostics, opts)
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+    --vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
     vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
     vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
     vim.keymap.set("n", "<space>wl", function()

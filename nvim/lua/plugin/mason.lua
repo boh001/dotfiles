@@ -12,6 +12,7 @@ return {
         "tailwindcss",
         "eslint",
         "mdx_analyzer",
+        "astro"
       },
       automatic_installation = true,
     })

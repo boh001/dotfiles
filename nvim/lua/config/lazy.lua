@@ -18,7 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = ","
 vim.g.localleader = "\\"
-vim.opt.timeoutlen = 150
+vim.opt.timeoutlen = 500
 
 require("lazy").setup({
   spec = {

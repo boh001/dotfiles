@@ -9,10 +9,10 @@ return {
     local set = vim.keymap.set
 
     -- Add or skip cursor above/below the main cursor.
-    set({ "x" }, "k", function()
+    set({ "x" }, "<C-k>", function()
       mc.matchAddCursor(-1)
     end)
-    set({ "x" }, "j", function()
+    set({ "x" }, "<C-j>", function()
       mc.matchAddCursor(1)
     end)
     set({ "x" }, "<leader>k", function()
@@ -21,8 +21,8 @@ return {
     set({ "x" }, "<leader>j", function()
       mc.matchSkipCursor(1)
     end)
-    set({ "x" }, "l", mc.prevCursor)
-    set({ "x" }, "h", mc.nextCursor)
+    set({ "x" }, "<leader>l", mc.prevCursor)
+    set({ "x" }, "<leader>h", mc.nextCursor)
     set({ "x" }, "x", mc.deleteCursor)
     set("n", "<esc>", function()
       if not mc.cursorsEnabled() then
