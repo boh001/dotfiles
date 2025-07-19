@@ -3,47 +3,12 @@ vim.lsp.config("*", {
   root_markers = { ".git" },
 })
 
--- lua
-local lua_ls = require("config.lsp.lua_ls")
+local lsps = require("config.lsp.servers")
 
-vim.lsp.config.lua_ls = lua_ls
-vim.lsp.enable("lua_ls")
-
--- typescript
-local ts_ls = require("config.lsp.ts_ls")
-
-vim.lsp.config.ts_ls = ts_ls
-vim.lsp.enable("ts_ls")
-
--- eslint
-local eslint = require("config.lsp.eslint")
-vim.lsp.config.eslint = eslint
-vim.lsp.enable("eslint")
-
--- html
-local html = require("config.lsp.html")
-vim.lsp.config.html = html
-vim.lsp.enable("html")
-
--- css
-local cssls = require("config.lsp.cssls")
-vim.lsp.config.cssls = cssls
-vim.lsp.enable("cssls")
-
--- tailwindcss
-local tailwindcss = require("config.lsp.tailwindcss")
-vim.lsp.config.tailwindcss = tailwindcss
-vim.lsp.enable("tailwindcss")
-
--- mdx
-local mdx_analyzer = require("config.lsp.mdx_analyzer")
-vim.lsp.config.mdx_analyzer = mdx_analyzer
-vim.lsp.enable("mdx_analyzer")
-
--- astro
-local astro = require("config.lsp.astro")
-vim.lsp.config.astro = astro
-vim.lsp.enable("astro")
+for _, lsp in ipairs(lsps) do
+  vim.lsp.config[lsp] = require("config.lsp." .. lsp)
+  vim.lsp.enable(lsp)
+end
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConfig", {}),

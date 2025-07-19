@@ -1,29 +1,17 @@
 local util = require("config.lsp.util")
 
 return {
-  default_config = {
-    cmd = { "astro-ls", "--stdio" },
-    filetypes = { "astro" },
-    init_options = {
-      typescript = {},
-    },
-    on_new_config = function(new_config, new_root_dir)
-      if
-        vim.tbl_get(new_config.init_options, "typescript")
-        and not new_config.init_options.typescript.tsdk
-      then
-        new_config.init_options.typescript.tsdk = util.get_typescript_server_path(new_root_dir)
-      end
-    end,
+  cmd = { "astro-ls", "--stdio" },
+  filetypes = { "astro" },
+  init_options = {
+    typescript = {},
   },
-  docs = {
-    description = [[
-https://github.com/withastro/language-tools/tree/main/packages/language-server
-
-`astro-ls` can be installed via `npm`:
-```sh
-npm install -g @astrojs/language-server
-```
-]],
-  },
+  on_new_config = function(new_config, new_root_dir)
+    if
+      vim.tbl_get(new_config.init_options, "typescript")
+      and not new_config.init_options.typescript.tsdk
+    then
+      new_config.init_options.typescript.tsdk = util.get_typescript_server_path(new_root_dir)
+    end
+  end,
 }

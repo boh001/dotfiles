@@ -1,19 +1,15 @@
 return {
   "williamboman/mason-lspconfig.nvim",
-  dependencies = { "williamboman/mason.nvim", "WhoIsSethDaniel/mason-tool-installer.nvim" },
+  dependencies = {
+    "williamboman/mason.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "jay-babu/mason-nvim-dap.nvim",
+  },
   config = function()
+    local lsp = require("config.lsp")
     require("mason").setup()
     require("mason-lspconfig").setup({
-      ensure_installed = {
-        "lua_ls",
-        "ts_ls",
-        "html",
-        "cssls",
-        "tailwindcss",
-        "eslint",
-        "mdx_analyzer",
-        "astro"
-      },
+      ensure_installed = require("config.lsp.servers"),
       automatic_installation = true,
     })
     require("mason-tool-installer").setup({
