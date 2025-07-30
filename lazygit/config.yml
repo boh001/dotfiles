@@ -6,22 +6,25 @@ git:
     showGraph: always
 gui:
     border: rounded
+    nerdFontsVersion: "3"
+    lightTheme: false
     theme:
-        activeBorderColor:
-            - "#5ef1ff"
-        inactiveBorderColor:
-            - "#7b8496"
-        searchingActiveBorderColor:
-            - "#ff5ef1"
-        optionsTextColor:
-            - "#3c4048"
-        selectedLineBgColor:
-            - "#3c4048"
-        cherryPickedCommitBgColor:
-            - "#3c4048"
-        cherryPickedCommitFgColor:
-            - "#ff5ea0"
-        unstagedChangesColor:
-            - "#ffbd5e"
-        defaultFgColor:
-            - "#ffffff"
+      activeBorderColor:
+        - '#98c379'
+        - bold
+      inactiveBorderColor:
+        - '#5c6370'
+      optionsTextColor:
+        - '#61afef'
+      selectedLineBgColor:
+        - '#3e4451'
+      cherryPickedCommitBgColor:
+        - '#c678dd'
+      cherryPickedCommitFgColor:
+        - '#282c34'
+      unstagedChangesColor:
+        - '#e06c75'
+      defaultFgColor:
+        - '#abb2bf'
+      searchingActiveBorderColor:
+        - '#e5c07b'
