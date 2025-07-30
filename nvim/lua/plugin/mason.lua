@@ -6,10 +6,15 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
   },
   config = function()
-    local lsp = require("config.lsp")
     require("mason").setup()
     require("mason-lspconfig").setup({
       ensure_installed = require("config.lsp.servers"),
+      automatic_installation = true,
+    })
+    require("mason-nvim-dap").setup({
+      ensure_installed = {
+        "js-debug-adapter",
+      },
       automatic_installation = true,
     })
     require("mason-tool-installer").setup({

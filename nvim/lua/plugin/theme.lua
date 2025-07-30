@@ -1,10 +1,10 @@
 return {
-  "scottmckendry/cyberdream.nvim",
+  "navarasu/onedark.nvim",
   lazy = false,
   priority = 1000,
   config = function()
-    require("cyberdream").setup({})
+    require("onedark").setup({})
 
-    vim.cmd.colorscheme("cyberdream")
+    vim.cmd.colorscheme("onedark")
   end,
 }
