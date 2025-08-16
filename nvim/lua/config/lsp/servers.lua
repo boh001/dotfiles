@@ -7,4 +7,6 @@ return {
   "eslint",
   "mdx_analyzer",
   "astro",
+  "terraformls",
+  "tflint"
 }

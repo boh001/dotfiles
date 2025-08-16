@@ -35,7 +35,7 @@ return {
         preview = {
           mime_hook = function(filepath, bufnr, opts)
             local is_image = function(filepath)
-              local image_extensions = { "png", "jpg", "svg", "gif"} -- Supported image formats
+              local image_extensions = { "png", "jpg", "svg", "gif" } -- Supported image formats
               local split_path = vim.split(filepath:lower(), ".", { plain = true })
               local extension = split_path[#split_path]
               return vim.tbl_contains(image_extensions, extension)
@@ -78,7 +78,6 @@ return {
     telescope.load_extension("workspaces")
     telescope.load_extension("fzf")
     telescope.load_extension("yank_history")
-
 
     local builtin = require("telescope.builtin")
 
