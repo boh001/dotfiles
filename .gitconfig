@@ -1,0 +1,15 @@
+[user]
+  name = sangyheon.kim
+  email = boh001g@gmail.com
+
+[core]
+  editor = nvim
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = false
+
+[push]
+    default = simple

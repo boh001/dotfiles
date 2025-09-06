@@ -1,3 +1,11 @@
-configstore
-git
-github-copilot
+*
+
+!nvim
+!kitty
+!lazygit
+!yazi
+!waybar
+!hypr
+!pkglist.txt
+!aur.txt
+!.gitconfig
