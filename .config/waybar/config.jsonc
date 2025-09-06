@@ -27,8 +27,7 @@
     "modules-right": [
         "network",
         "battery",
-        "clock#date",
-	"clock#time"
+        "clock",
     ],
 
 
@@ -48,14 +47,8 @@
         ]
     },
 
-    "clock#date": {
-	"interval": 10,
-        "format": "{:%Y-%m-%d}"
-    },
-
-    "clock#time": {
-	"interval": 1,
-        "format": "{:%H:%M:%S}"
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}",
     },
 
     "network": {
