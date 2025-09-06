@@ -6,10 +6,13 @@
   editor = nvim
 
 [init]
-    defaultBranch = main
+  defaultBranch = main
 
 [pull]
-    rebase = false
+  rebase = false
 
 [push]
-    default = simple
+  default = simple
+
+[credential]
+  helper = store
