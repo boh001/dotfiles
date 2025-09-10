@@ -1,31 +1,36 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   time.timeZone = "Asia/Seoul";
-i18n = {
-  defaultLocale = "en_US.UTF-8";
-  supportedLocales = [
-    "en_US.UTF-8/UTF-8"
-    "ko_KR.UTF-8/UTF-8"
-  ];
-  inputMethod = {
-    enabled  = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-hangul
-      fcitx5-gtk
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ko_KR.UTF-8/UTF-8"
     ];
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [
+        fcitx5-hangul
+        fcitx5-gtk
+      ];
+    };
   };
-};
 
   users.users.sanghyeon = {
     isNormalUser = true;
@@ -36,14 +41,14 @@ i18n = {
   };
 
   programs.firefox.enable = true;
-  programs.hyprland.enable  = true;
+  programs.hyprland.enable = true;
 
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-	command = "Hyprland";
-	user = "sanghyeon";
+        command = "Hyprland";
+        user = "sanghyeon";
       };
     };
   };
@@ -59,9 +64,9 @@ i18n = {
   };
 
   environment.systemPackages = with pkgs; [
+    pkgs.nixfmt-rfc-style
     vim
     neovim
-    yazi
     lazygit
     wget
     git
@@ -77,15 +82,30 @@ i18n = {
     pamixer
     bluez
     bluez-tools
+    nodejs_24
+    gcc
+    yazi
+    ffmpeg
+    p7zip
+    jq
+    poppler_utils
+    fd
+    ripgrep
+    fzf
+    zoxide
+    resvg
+    imagemagick
+    btop
+    unzip
+    gnumake
   ];
 
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = 1;
     NIXOS_OZONE_WL = 1;
-    EDITOR="nvim";
-    PS1="\u@\h:\w\n❯ ";
+    EDITOR = "nvim";
+    PS1 = "\u@\h:\w\n❯ ";
   };
-
 
   fonts.packages = with pkgs; [
     noto-fonts-emoji
@@ -93,8 +113,10 @@ i18n = {
     nerd-fonts.hack
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   system.stateVersion = "25.05";
 }
-

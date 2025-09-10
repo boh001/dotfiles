@@ -8,5 +8,6 @@ return {
   "mdx_analyzer",
   "astro",
   "terraformls",
-  "tflint"
+  "tflint",
+  "nixd",
 }

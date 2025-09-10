@@ -16,6 +16,7 @@ return {
     require("conform").setup({
       -- 파일 타입별 포매터 설정
       formatters_by_ft = {
+        nix = { "nixfmt" },
         lua = { "stylua" },
         javascript = { "prettierd" },
         typescript = { "prettierd", "prettier", stop_after_first = true },
