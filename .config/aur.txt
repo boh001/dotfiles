@@ -1,6 +1,0 @@
-brave-bin
-fnm
-getnf
-nordic-theme
-yay
-yay-debug
