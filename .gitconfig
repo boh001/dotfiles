@@ -5,4 +5,4 @@
 	autoSetupRemote = true
 
 [credential]
-	helper = true
+	helper = store
