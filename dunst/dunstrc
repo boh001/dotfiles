@@ -1,12 +1,40 @@
+# =============================================================================
+# Dunst Simple Cyberdream Theme 
+# Location: ~/.config/dunst/dunstrc
+# =============================================================================
+
 [global]
-    width = 300
-    height = 300
-    offset = 10x10
+    width = 350
+    height = 200
     origin = top-right
-    transparency = 10
-    font = Monospace 10
+    offset = 20x60
+    
+    frame_width = 1
+    corner_radius = 6
+    
+    font = JetBrains Mono 11
+    format = "<b>%s</b>\n%b"
+    
+    icon_position = left
+    max_icon_size = 48
+    
+    mouse_left_click = close_current
+    mouse_right_click = close_all
+
+[urgency_low]
+    background = "#16181a"
+    foreground = "#ffffff" 
+    frame_color = "#00d7ff"
+    timeout = 5
 
 [urgency_normal]
-    background = "#222222"
+    background = "#16181a"
     foreground = "#ffffff"
-    timeout = 10
+    frame_color = "#5ef78e"
+    timeout = 8
+
+[urgency_critical]
+    background = "#16181a"
+    foreground = "#ffffff"
+    frame_color = "#ff6b9d"
+    timeout = 0
