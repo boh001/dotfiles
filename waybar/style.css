@@ -1,118 +1,78 @@
-
 /* =============================================================================
  *
- * Waybar configuration
- *
- * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ * Waybar CSS - Simple with GTK Theme Colors & Cyberdream Accents
  *
  * =========================================================================== */
 
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
-@keyframes blink-warning {
-    70% {
-        color: white;
-    }
-
-    to {
-        color: white;
-        background-color: orange;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-      color: white;
-    }
-
-    to {
-        color: white;
-        background-color: red;
-    }
-}
-
-
-/* -----------------------------------------------------------------------------
- * Base styles
- * -------------------------------------------------------------------------- */
-
 /* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
 }
 
-/* The whole bar */
+/* The whole bar - use GTK theme */
 #waybar {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 /* Each module */
 #battery,
 #clock,
-#mode,
-#network {
-    padding-left: 10px;
-    padding-right: 10px;
+#cpu,
+#disk,
+#memory,
+#network,
+#pulseaudio {
+  padding: 0 8px;
+  margin: 0 4px;
 }
 
-
-/* -----------------------------------------------------------------------------
- * Module styles
- * -------------------------------------------------------------------------- */
-
+/* Module colors - cyberdream accents only */
+#cpu {
+  color: #00d7ff;
+} /* bright cyan */
+#memory {
+  color: #ffaa00;
+} /* bright orange */
+#disk {
+  color: #ff6b9d;
+} /* bright pink */
+#pulseaudio {
+  color: #bd93f9;
+} /* bright purple */
 #battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#battery.warning {
-    color: orange;
-}
-
-#battery.critical {
-    color: red;
-}
-
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
-}
-
-#battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
-}
-
-#clock {
-}
-
+  color: #5ef78e;
+} /* bright green */
 #network {
-    /* No styles */
-}
+  color: #ff9580;
+} /* bright coral */
 
+/* States */
+#battery.warning {
+  color: #ffaa00;
+}
+#battery.critical {
+  color: #ff6b9d;
+}
 #network.disconnected {
-    color: orange;
+  color: #ff6b9d;
 }
 
-#window {
-    font-weight: bold;
-}
-
+/* Workspaces - minimal styling */
 #workspaces button {
-    border-top: 2px solid transparent;
-    padding-bottom: 2px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: #888888;
+  color: #888888;
+  padding: 4px 12px;
+  margin: 0 2px;
 }
 
 #workspaces button.active {
-    color: #ffffff;
+  color: #ffffff;
+}
+/* Window title */
+#window {
+  padding: 0 16px;
 }

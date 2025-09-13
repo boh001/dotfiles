@@ -11,7 +11,7 @@ return {
       automatic_installation = true,
     })
     require("mason-tool-installer").setup({
-      ensure_installed = { "stylua", "prettierd" },
+      ensure_installed = { "stylua", "prettierd", "taplo", "shfmt", "shellcheck" },
     })
   end,
 }

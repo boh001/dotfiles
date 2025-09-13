@@ -16,16 +16,17 @@ return {
     require("conform").setup({
       -- 파일 타입별 포매터 설정
       formatters_by_ft = {
-        nix = { "nixfmt" },
         lua = { "stylua" },
-        javascript = { "prettierd" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
         html = { "prettierd", "prettier", stop_after_first = true },
         css = { "prettierd", "prettier", stop_after_first = true },
-        json = { "prettierd", "prettier", stop_after_first = true },
         markdown = { "prettierd", "prettier", stop_after_first = true },
-        astro = { "prettierd", "prettier", stop_after_first = true },
+        bash = { "shfmt" },
+        json = { "prettierd", "prettier", stop_after_first = true },
+        yaml = { "prettierd", "prettier", stop_after_first = true },
+        toml = { "taplo" },
       },
       -- 포매터 설정 (선택사항)
       formatters = {

@@ -5,19 +5,14 @@
 // Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
 //
 // =============================================================================
-
 {
     // -------------------------------------------------------------------------
     // Global configuration
     // -------------------------------------------------------------------------
-
     "layer": "top",
-
     "position": "top",
-
-    // If height property would be not present, it'd be calculated dynamically
-    "height": 30,
-
+    "height": 36,
+    "spacing": 8,
     "modules-left": [
         "hyprland/workspaces"
     ],
@@ -25,52 +20,107 @@
         "hyprland/window"
     ],
     "modules-right": [
+        "cpu",
+        "memory", 
+        "disk",
+        "pulseaudio",
         "network",
         "battery",
         "clock",
     ],
-
-
     // -------------------------------------------------------------------------
     // Modules
     // -------------------------------------------------------------------------
+    "cpu": {
+        "interval": 5,
+        "format": "󰻠 {usage}%",
+        "tooltip": true,
+        "tooltip-format": "CPU Usage: {usage}%\nLoad: {load}"
+    },
+    "memory": {
+        "interval": 10,
+        "format": "󰑭 {percentage}%",
+        "tooltip": true,
+        "tooltip-format": "Memory: {used:0.1f}GB used / {total:0.1f}GB total\nSwap: {swapUsed:0.1f}GB / {swapTotal:0.1f}GB"
+    },
+    "disk": {
+        "interval": 30,
+        "format": "󰋊 {percentage_used}%",
+        "path": "/",
+        "tooltip": true,
+        "tooltip-format": "Disk Usage: {used} used / {total} total\nAvailable: {free}"
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋋",
+            "headset": "󰋋", 
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "tooltip": true,
+        "tooltip-format": "Volume: {volume}%\nDevice: {desc}",
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
     "battery": {
         "interval": 10,
-        "format": "󰂄 {capacity}%",
-        "format-discharging": "{icon} {capacity}%",
-	"format-icons": [
-            "󰂎", // Icon: battery-full
-            "󰁼", // Icon: battery-three-quarters
-            "󰁾", // Icon: battery-half
-            "󰂁", // Icon: battery-quarter
-            "󰁹"  // Icon: battery-empty
-        ]
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-full": "󰁹 {capacity}%",
+        "format-icons": [
+            "󰁺", // Icon: battery-outline (0-20%)
+            "󰁼", // Icon: battery-quarter (20-40%)
+            "󰁾", // Icon: battery-half (40-60%)
+            "󰂀", // Icon: battery-three-quarters (60-80%)
+            "󰁹"  // Icon: battery-full (80-100%)
+        ],
+        "tooltip": true,
+        "tooltip-format": "Battery: {capacity}%\nTime remaining: {time}\nPower: {power}W"
     },
-
     "clock": {
-        "format": "{:%Y-%m-%d %H:%M}",
+        "interval": 60,
+        "format": "󰥔 {:%H:%M}",
+        "tooltip": true,
+        "tooltip-format": "󰥔 {:%A, %B %d, %Y %I:%M %p}",
     },
-
     "network": {
         "interval": 5,
-        "format-wifi": " {essid}", // Icon: wifi
-        "format-ethernet": " {ifname}", // Icon: ethernet
-        "format-disconnected": "⚠ Disconnected"
+        "format-wifi": "  {essid} ({signalStrength}%)",
+        "format-ethernet": "󰈀 Connected",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "󰤭 Disconnected",
+        "tooltip": true,
+        "tooltip-format": "Interface: {ifname}\nIP: {ipaddr}\nGateway: {gwaddr}\nNetmask: {netmask}",
+        "tooltip-format-wifi": "Network: {essid}\nSignal: {signalStrength}%\nFrequency: {frequency}MHz\nIP: {ipaddr}",
+        "on-click": "nm-connection-editor"
     },
-
     "hyprland/window": {
         "format": "{}",
-        "max-length": 120
+        "max-length": 60,
+        "separate-outputs": true
     },
-
     "hyprland/workspaces": {
         "disable-scroll": true,
-        "format": "{name}",
-	"active-only": false,
-	"all-outputs": false,
-	"sort-by-number": true,
-	"persistent-workspaces": {
-	    "*": 5
-	}
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2", 
+            "3": "3",
+            "4": "4",
+            "5": "5",
+        },
+        "active-only": false,
+        "all-outputs": true,
+        "sort-by-number": true,
+        "persistent-workspaces": {
+            "*": 5
+        }
     }
 }
