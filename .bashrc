@@ -1,3 +1,5 @@
+fastfetch 
+
 PS1="[\t] \u@\h:\w\n\$ "
 
 export EDITOR=nvim
