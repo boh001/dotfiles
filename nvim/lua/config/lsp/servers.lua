@@ -7,5 +7,6 @@ return {
   "mdx_analyzer",
   "terraformls",
   "tflint",
-  "bashls"
+  "bashls",
+  "pyright",
 }
