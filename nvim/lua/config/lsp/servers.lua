@@ -8,5 +8,4 @@ return {
   "terraformls",
   "tflint",
   "bashls",
-  "pyright",
 }
