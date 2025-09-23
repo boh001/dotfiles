@@ -1,8 +1,0 @@
-[user]
-	name = sanghyeon.kim
-	email = boh001g@gmail.com
-[push]
-	autoSetupRemote = true
-
-[credential]
-	helper = store
