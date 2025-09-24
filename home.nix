@@ -5,7 +5,6 @@
   home.homeDirectory = "/home/sanghyeon";
   home.stateVersion = "25.05";
   home.packages = with pkgs; [
-    nixpkgs-fmt
     nerd-fonts.jetbrains-mono
     pavucontrol
     claude-code

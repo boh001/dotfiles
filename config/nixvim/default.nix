@@ -9,15 +9,34 @@
     ./nvim-tree.nix
     ./web-devicons.nix
     ./lsp.nix
+    ./blink-cmp.nix
+    ./treesitter.nix
+    ./conform.nix
+    ./lint.nix
+    ./lualine.nix
+    ./bufferline.nix
     ./snacks.nix
     ./toggleterm.nix
     ./telescope.nix
     ./projections.nix
     ./yanky.nix
+    ./todo-comments.nix
+    ./ts-comments.nix
+    ./autopairs.nix
+    ./ts-autotag.nix
+    ./nvim-surround.nix
+    #./grug-far.nix
+    ./gitblame.nix
+    ./copilot-vim.nix
   ];
 
   programs.nixvim = {
     enable = true;
+    nixpkgs = {
+      config = {
+        allowUnfree = true;
+      };
+    };
     defaultEditor = true;
     opts = {
       number = true;

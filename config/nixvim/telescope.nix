@@ -1,5 +1,11 @@
+{ pkgs, ... }:
+
 {
   programs.nixvim = {
+    extraPackages = with pkgs; [
+      ripgrep
+    ];
+
     plugins.telescope = {
       enable = true;
       extensions = {

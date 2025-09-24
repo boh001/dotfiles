@@ -15,13 +15,13 @@
   };
 
   outputs = { self, nixpkgs, home-manager, nixvim, catppuccin, ... }:
+    let
+      system = "x86_64-linux";
+    in
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-          }
           ./configuration.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
