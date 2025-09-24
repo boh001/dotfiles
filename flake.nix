@@ -15,6 +15,9 @@
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+          {
+            nixpkgs.config.allowUnfree = true;
+          }
           ./configuration.nix
           catppuccin.nixosModules.catppuccin
           home-manager.nixosModules.home-manager
@@ -24,8 +27,8 @@
               useUserPackages = true;
               users.sanghyeon = {
                 imports = [
-                  ./home.nix
                   catppuccin.homeModules.catppuccin
+                  ./home.nix
                 ];
               };
               backupFileExtension = "backup";
