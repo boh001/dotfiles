@@ -10,6 +10,10 @@
     ./web-devicons.nix
     ./lsp.nix
     ./snacks.nix
+    ./toggleterm.nix
+    ./telescope.nix
+    ./projections.nix
+    ./yanky.nix
   ];
 
   programs.nixvim = {

@@ -5,7 +5,7 @@
     enable = true;
     enableCompletion = true;
     shellAliases = {
-      v = "vim";
+      v = "nvim";
       f = "fastfetch";
       y = "yazi";
       lg = "lazygit";
