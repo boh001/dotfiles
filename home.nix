@@ -33,6 +33,7 @@
     ./config/kitty.nix
     ./config/lazygit.nix
     ./config/yazi.nix
+    ./config/zellij.nix
     ./config/firefox.nix
     ./config/waybar.nix
     ./config/rofi.nix

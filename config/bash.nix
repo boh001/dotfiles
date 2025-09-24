@@ -8,8 +8,9 @@
       v = "vim";
       f = "fastfetch";
       y = "yazi";
-      g = "lazygit";
+      lg = "lazygit";
       cc = "claude";
+      zj = "zellij";
     };
     bashrcExtra = ''
       fastfetch 
