@@ -13,6 +13,28 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.resumeDevice = "/dev/disk/by-uuid/4362772e-769d-4c1e-8467-405d15af00ae";
+  boot.kernelParams = [ "resume=/dev/disk/by-uuid/4362772e-769d-4c1e-8467-405d15af00ae" ];
+
+  services.logind = {
+    lidSwitch = "lock";
+    lidSwitchExternalPower = "lock";
+    lidSwitchDocked = "lock";
+  };
+
+  systemd.sleep.extraConfig = ''
+    HibernateDelaySec=30min
+  '';
+
+  powerManagement.enable = true;
+
+  services.tlp = {
+    enable = true;
+    settings = {
+      TLP_DEFAULT_MODE = "BAT";
+    };
+  };
+
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
