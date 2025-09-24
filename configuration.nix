@@ -45,6 +45,7 @@
     inputMethod = {
       enable = true;
       type = "fcitx5";
+      fcitx5.waylandFrontend = true;
       fcitx5.addons = with pkgs; [
         fcitx5-hangul
         fcitx5-mozc
@@ -76,6 +77,7 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
+    wl-clipboard
   ];
 
   fonts.packages = with pkgs; [

@@ -19,15 +19,16 @@
     accent = "blue";
   };
 
-  gtk = {
+  home.pointerCursor = {
     enable = true;
+    package = pkgs.catppuccin-cursors.mochaBlue;
+    name = "catppuccin-mocha-blue-cursors";
+    size = 24;
   };
 
   imports = [
-    ./config/hypr/hyprland.nix
-    ./config/hypr/hyprpaper.nix
-    ./config/hypr/hyprlock.nix
-    ./config/hypr/hypridle.nix
+    ./config/hypr
+    ./config/nixvim
     ./config/bash.nix
     ./config/git.nix
     ./config/kitty.nix
