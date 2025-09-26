@@ -95,6 +95,7 @@
               "aldente"
               "chatgpt"
               "claude"
+              "karabiner-elements"
             ];
             masApps = {
               KakaoTalk = 869223134;

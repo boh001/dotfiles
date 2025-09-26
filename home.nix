@@ -3,7 +3,10 @@
 , lib
 , ...
 }:
-
+let
+  dotfiles = "${config.home.homeDirectory}/.dotfiles";
+  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+in
 {
   home.username = "sanghyeon";
   home.homeDirectory = "/Users/sanghyeon";
@@ -16,6 +19,10 @@
     fzf
     nerd-fonts.jetbrains-mono
   ];
+
+  xdg.configFile."karabiner/karabiner.json" = {
+    source = create_symlink "${dotfiles}/karabiner.json";
+  };
 
   programs.zsh = {
     enable = true;
