@@ -1,45 +1,68 @@
-{ config, pkgs, lib, ... }:
+{ config
+, pkgs
+, lib
+, ...
+}:
 
 {
   home.username = "sanghyeon";
-  home.homeDirectory = "/home/sanghyeon";
+  home.homeDirectory = "/Users/sanghyeon";
   home.stateVersion = "25.05";
   home.packages = with pkgs; [
+    fastfetch
+    nixpkgs-fmt
+    bat
+    zoxide
+    fzf
     nerd-fonts.jetbrains-mono
-    pavucontrol
-    claude-code
-    trash-cli
-    brightnessctl
   ];
 
-  catppuccin = {
+  programs.zsh = {
     enable = true;
-    flavor = "mocha";
-    accent = "blue";
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      v = "vim";
+      y = "yazi";
+      z = "zoxide";
+      f = "fzf";
+      ff = "fastfetch";
+    };
   };
 
-  home.pointerCursor = {
+  programs.git = {
     enable = true;
-    package = pkgs.catppuccin-cursors.mochaBlue;
-    name = "catppuccin-mocha-blue-cursors";
-    size = 24;
+    userName = "sanghyeon";
+    userEmail = "boh001g@gmail.con";
+    extraConfig = {
+      credential.helper = "store";
+    };
   };
 
-  imports = [
-    ./config/hypr
-    ./config/nixvim
-    ./config/bash.nix
-    ./config/git.nix
-    ./config/kitty.nix
-    ./config/lazygit.nix
-    ./config/yazi.nix
-    ./config/zellij.nix
-    ./config/firefox.nix
-    ./config/waybar.nix
-    ./config/rofi.nix
-    ./config/dunst.nix
-    ./config/fastfetch.nix
-    ./config/bat.nix
-    ./config/btop.nix
-  ];
+  programs.vim = {
+    enable = true;
+    defaultEditor = true;
+    settings = {
+      ignorecase = true;
+      expandtab = true;
+      tabstop = 2;
+      shiftwidth = 2;
+      number = true;
+      mouse = "a";
+    };
+    extraConfig = ''
+      set clipboard=unnamedplus
+    '';
+  };
+
+  programs.yazi = {
+    enable = true;
+    settings = {
+      mgr = {
+        show_hidden = true;
+      };
+    };
+  };
 }
