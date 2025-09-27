@@ -11,7 +11,6 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nix-homebrew.url = "github:zhaofengli/nix-homebrew";
     homebrew-core = {
       url = "github:homebrew/homebrew-core";
@@ -97,15 +96,24 @@
             };
             taps = builtins.attrNames config.nix-homebrew.taps;
             brews = [
+              # mac app store
+              "mas"
+
+              # version manager
               "fnm"
               "rbenv"
               "sdkman-cli"
-              "mas"
+
+              # terminal
               "fastfetch"
               "bat"
               "zoxide"
               "fzf"
+
+              # react-native
+              "watchman"
             ];
+
             casks = [
               "font-jetbrains-mono-nerd-font"
               "google-chrome"
@@ -120,6 +128,7 @@
             masApps = {
               KakaoTalk = 869223134;
               CleanMyMac = 1339170533;
+              Xcode = 497799835;
             };
           };
         };
@@ -134,8 +143,8 @@
             users.users.sanghyeon.home = "/Users/sanghyeon";
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "bak";
             home-manager.users.sanghyeon = import ./home.nix;
-            home-manager.backupFileExtension = "backup";
           }
         ];
       };
