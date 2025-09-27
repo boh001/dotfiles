@@ -21,6 +21,10 @@
       url = "github:homebrew/homebrew-cask";
       flake = false;
     };
+    homebrew-sdkman = {
+      url = "github:sdkman/homebrew-tap";
+      flake = false;
+    };
   };
 
   outputs =
@@ -31,7 +35,7 @@
     , nix-homebrew
     , homebrew-core
     , homebrew-cask
-    ,
+    , homebrew-sdkman
     }:
     let
       configuration =
@@ -55,8 +59,13 @@
 
           system.defaults = {
             NSGlobalDomain.ApplePressAndHoldEnabled = false;
+            NSGlobalDomain."com.apple.sound.beep.volume" = 0.0;
+            NSGlobalDomain.AppleInterfaceStyle = "Dark";
+
+
             finder.AppleShowAllFiles = true;
             finder.AppleShowAllExtensions = true;
+
             screencapture.location = "~/Pictures/Screenshots";
 
             dock = {
@@ -73,7 +82,10 @@
             taps = {
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
+              "sdkman/homebrew-tap" = homebrew-sdkman;
             };
+
+            mutableTaps = false;
           };
 
           homebrew = {
@@ -81,21 +93,29 @@
             onActivation = {
               autoUpdate = true;
               upgrade = true;
-              cleanup = "uninstall";
+              cleanup = "zap";
             };
             taps = builtins.attrNames config.nix-homebrew.taps;
             brews = [
               "fnm"
+              "rbenv"
+              "sdkman-cli"
               "mas"
-              "claude-cmd"
+              "fastfetch"
+              "bat"
+              "zoxide"
+              "fzf"
             ];
             casks = [
+              "font-jetbrains-mono-nerd-font"
               "google-chrome"
               "visual-studio-code"
+              "slack"
+              "obsidian"
               "aldente"
               "chatgpt"
-              "claude"
               "karabiner-elements"
+              "android-studio"
             ];
             masApps = {
               KakaoTalk = 869223134;
@@ -115,6 +135,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.sanghyeon = import ./home.nix;
+            home-manager.backupFileExtension = "backup";
           }
         ];
       };

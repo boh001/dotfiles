@@ -7,6 +7,9 @@
   "profiles": [
     {
       "name": "Default",
+      "virtual_hid_keyboard": {
+        "keyboard_type": "ansi"
+      },
       "selected": true,
       "simple_modifications": {
         "caps_lock": "left_control",

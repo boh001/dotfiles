@@ -11,13 +11,8 @@ in
   home.username = "sanghyeon";
   home.homeDirectory = "/Users/sanghyeon";
   home.stateVersion = "25.05";
-  home.packages = with pkgs; [
-    fastfetch
+  home.packages = with pkgs; [ 
     nixpkgs-fmt
-    bat
-    zoxide
-    fzf
-    nerd-fonts.jetbrains-mono
   ];
 
   xdg.configFile."karabiner/karabiner.json" = {
@@ -30,19 +25,13 @@ in
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = {
-      v = "vim";
-      y = "yazi";
-      z = "zoxide";
-      f = "fzf";
-      ff = "fastfetch";
-    };
+    initContent = builtins.readFile ./zshrc;
   };
 
   programs.git = {
     enable = true;
     userName = "sanghyeon";
-    userEmail = "boh001g@gmail.con";
+    userEmail = "boh001g@gmail.com";
     extraConfig = {
       credential.helper = "store";
     };
@@ -50,7 +39,6 @@ in
 
   programs.vim = {
     enable = true;
-    defaultEditor = true;
     settings = {
       ignorecase = true;
       expandtab = true;
