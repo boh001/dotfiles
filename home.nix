@@ -34,6 +34,7 @@ in
     userEmail = "boh001g@gmail.com";
     extraConfig = {
       credential.helper = "store";
+      push = { autoSetupRemote = true; };
     };
   };
 

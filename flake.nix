@@ -112,6 +112,7 @@
 
               # react-native
               "watchman"
+
             ];
 
             casks = [
@@ -119,7 +120,6 @@
               "google-chrome"
               "visual-studio-code"
               "slack"
-              "obsidian"
               "aldente"
               "chatgpt"
               "karabiner-elements"
