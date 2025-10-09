@@ -112,7 +112,6 @@
 
               # react-native
               "watchman"
-
             ];
 
             casks = [
@@ -124,6 +123,8 @@
               "chatgpt"
               "karabiner-elements"
               "android-studio"
+              "docker"
+              "figma"
             ];
             masApps = {
               KakaoTalk = 869223134;
