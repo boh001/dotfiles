@@ -123,7 +123,7 @@
               "chatgpt"
               "karabiner-elements"
               "android-studio"
-              "docker"
+              "docker-desktop"
               "figma"
             ];
             masApps = {
