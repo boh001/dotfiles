@@ -125,6 +125,7 @@
               "android-studio"
               "docker-desktop"
               "figma"
+              "logi-options+"
             ];
             masApps = {
               KakaoTalk = 869223134;
