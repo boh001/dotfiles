@@ -121,6 +121,8 @@
               "slack"
               "aldente"
               "chatgpt"
+              "claude"
+              "claude-code"
               "karabiner-elements"
               "android-studio"
               "docker-desktop"
