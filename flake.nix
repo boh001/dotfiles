@@ -96,22 +96,16 @@
             };
             taps = builtins.attrNames config.nix-homebrew.taps;
             brews = [
-              # mac app store
               "mas"
-
-              # version manager
               "fnm"
               "rbenv"
               "sdkman-cli"
-
-              # terminal
               "fastfetch"
               "bat"
               "zoxide"
               "fzf"
-
-              # react-native
-              "watchman"
+              "uv"
+              "ccusage"
             ];
 
             casks = [
@@ -129,6 +123,7 @@
               "figma"
               "logi-options+"
             ];
+
             masApps = {
               KakaoTalk = 869223134;
               CleanMyMac = 1339170533;

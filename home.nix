@@ -11,7 +11,7 @@ in
   home.username = "sanghyeon";
   home.homeDirectory = "/Users/sanghyeon";
   home.stateVersion = "25.05";
-  home.packages = with pkgs; [ 
+  home.packages = with pkgs; [
     nixpkgs-fmt
   ];
 
@@ -30,11 +30,16 @@ in
 
   programs.git = {
     enable = true;
-    userName = "sanghyeon";
-    userEmail = "boh001g@gmail.com";
-    extraConfig = {
-      credential.helper = "store";
-      push = { autoSetupRemote = true; };
+    settings = {
+      user =
+        {
+          userName = "sanghyeon";
+          userEmail = "boh001g@gmail.com";
+        };
+      extraConfig = {
+        credential.helper = "store";
+        push = { autoSetupRemote = true; };
+      };
     };
   };
 
