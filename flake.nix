@@ -24,6 +24,10 @@
       url = "github:sdkman/homebrew-tap";
       flake = false;
     };
+    homebrew-beads = {
+      url = "github:steveyegge/homebrew-beads";
+      flake = false;
+    };
   };
 
   outputs =
@@ -35,6 +39,7 @@
     , homebrew-core
     , homebrew-cask
     , homebrew-sdkman
+    , homebrew-beads
     }:
     let
       configuration =
@@ -82,6 +87,7 @@
               "homebrew/homebrew-core" = homebrew-core;
               "homebrew/homebrew-cask" = homebrew-cask;
               "sdkman/homebrew-tap" = homebrew-sdkman;
+              "steveyegge/homebrew-beads" = homebrew-beads;
             };
 
             mutableTaps = false;
@@ -106,6 +112,7 @@
               "fzf"
               "uv"
               "ccusage"
+              "bd"
             ];
 
             casks = [
@@ -114,13 +121,10 @@
               "visual-studio-code"
               "slack"
               "aldente"
-              "chatgpt"
               "claude"
               "claude-code"
               "karabiner-elements"
-              "android-studio"
               "docker-desktop"
-              "figma"
               "logi-options+"
             ];
 
