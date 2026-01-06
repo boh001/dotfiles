@@ -112,7 +112,6 @@
               "fzf"
               "uv"
               "ccusage"
-              "bd"
             ];
 
             casks = [
@@ -123,6 +122,8 @@
               "aldente"
               "claude"
               "claude-code"
+              "chatgpt"
+              "ngrok"
               "karabiner-elements"
               "docker-desktop"
               "logi-options+"
