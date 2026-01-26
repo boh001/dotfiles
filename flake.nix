@@ -116,13 +116,10 @@
 
             casks = [
               "font-jetbrains-mono-nerd-font"
-              "google-chrome"
               "visual-studio-code"
-              "slack"
               "aldente"
               "claude"
               "claude-code"
-              "chatgpt"
               "ngrok"
               "karabiner-elements"
               "docker-desktop"
