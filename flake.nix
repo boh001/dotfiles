@@ -116,7 +116,9 @@
 
             casks = [
               "font-jetbrains-mono-nerd-font"
+              "google-chrome"
               "visual-studio-code"
+              "android-studio"
               "aldente"
               "claude"
               "claude-code"
