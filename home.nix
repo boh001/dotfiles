@@ -17,6 +17,7 @@ in
 
   xdg.configFile."karabiner/karabiner.json" = {
     source = create_symlink "${dotfiles}/karabiner.json";
+    force = true;
   };
 
   programs.zsh = {
