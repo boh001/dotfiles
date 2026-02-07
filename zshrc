@@ -1,4 +1,5 @@
 export EDITOR="vim"
+export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
 
 # keybindings
 bindkey '^F' autosuggest-accept
@@ -9,6 +10,7 @@ alias y=yazi
 alias z=zoxide
 alias f=fzf
 alias ff=fastfetch
+alias c=claude --dangerously-skip-permissions 
 
 # fnm
 eval "$(fnm env --use-on-cd --shell zsh)"
