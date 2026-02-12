@@ -10,7 +10,8 @@ alias y=yazi
 alias z=zoxide
 alias f=fzf
 alias ff=fastfetch
-alias c=claude --dangerously-skip-permissions 
+alias c=claude --dangerously-skip-permissions
+alias claude-sync='cp -r ~/.claude/CLAUDE.md ~/.claude/settings.json ~/.claude/skills ~/.dotfiles/claude/'
 
 # fnm
 eval "$(fnm env --use-on-cd --shell zsh)"
